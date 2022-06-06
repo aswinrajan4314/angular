@@ -1,0 +1,329 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Travelo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/guest/img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/guest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/guest/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/guest/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/guest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/guest/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/guest/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/guest/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/guest/css/gijgo.css">
+    <link rel="stylesheet" href="/assets/guest/css/animate.css">
+    <link rel="stylesheet" href="/assets/guest/css/slick.css">
+    <link rel="stylesheet" href="/assets/guest/css/slicknav.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/guest/css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+
+    <!-- Topbar End -->
+    <div class="container-fluid" style="margin-bottom: 2px">
+        <div class="row bg-secondary1 py-2 px-xl-5">
+          <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center">
+              <a  class="text-orange px-2" href="">
+                <i class="fas fa-phone-alt"></i>
+              </a>
+              <a class="text-orange" href="tel:0471-2463799">0471-2463799</a>
+              <!-- <span class="text-muted px-2">|</span>
+                      <a class="text-orange" href="">Support</a> -->
+              <span class="text-muted px-2">|</span>
+              <a class="text-orange px-2" [routerLink]="['/guestmaster/loogin']">
+                <i class="fas fa-user-cog"></i>
+              </a>
+             
+              <a class="text-orange"  [routerLink]="['/guestmaster/loogin']">Operator Login</a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center text-lg-right">
+              <a class="text-orange px-2" ></a>
+              
+            
+        
+            <div class="d-inline-flex align-items-center">
+              <a class="text-orange px-2" href="https://www.facebook.com/KeralaStateRoadTransportCorporation/">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="text-orange px-2" href="https://twitter.com/transport_state?s=08/">
+                <i class="fab fa-twitter"></i>
+              </a>
+              
+              <a class="text-orange px-2" href="https://www.instagram.com/ksrtcofficial/?utm_medium=copy_link/">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="text-orange pl-2" href="https://www.youtube.com/channel/UCQO70_lRhoPu__PMrnroIHg/">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <span class="text-muted px-2">|</span>
+             
+            </div>
+            <a class="text-orange"  (click)="logout()" >  <a class="text-orange px-1" ><i class="fa-solid fa-right-from-bracket"></i></a> logout</a> 
+            <ng-container *ngIf="appUser">
+              <img class="user-avatar" src="{{ appUser?.photoURL }}" style="margin-left: 7px;" />
+              </ng-container>
+          </div>
+     
+              
+        </div>
+      </div>
+
+
+
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                   
+                                    <a href="index.html">
+                                        <img src="/assets/guest/img/logo copy.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6" style="margin-left: 457px;">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li  ><a class="active" [routerLink]="['/guestmaster/guesthome']">home</a></li>
+                                            <li><a [routerLink]="['/customermaster/student']">students ticket</a></li>
+                                            <li><a class="" >find bus</a></li>
+                                            <li><a href="#">trip <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                        <li><a href="destination_details.html">Destinations details</a></li>
+                                                        <li><a href="elements.html">routes</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">about us <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">history</a></li>
+                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                           
+                            <div class="seach_icon" style="margin-top: 9px;">
+                                <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
+                                    <!-- <i class="fa fa-search"></i> -->
+                                </a>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- news -->
+           
+            <div
+            class="hwrap justify-content-between align-items-center breaking-news  ">
+            <div class="news_icon" style="width: 94px;">
+            <p class="text-white" style="padding-left: 28px;">News </p>                            
+            </div>
+            
+            <marquee
+              class="news-scroll hitem"
+              behavior="scroll"
+              direction="left"
+              onmouseover="this.stop();"
+              onmouseout="this.start();"
+            >
+              <a href="#" class="text-white"
+                ><img src="/assets/guest/img/new.gif" style="padding-right: 15px;"> As per the Karnataka State Government order, The mandate of possessing RT-PCR negative test reports was discontinued for passengers arriving from Kerala. All passengers coming from Kerala State to Karnataka will mandatorily carry the two-dose / full dose vaccination certificate. This Must be submitted to the officials if necessary.click here
+                .
+              </a>
+             <!--  <span class="dot"></span>
+              <a href="#"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut
+              </a>
+              <span class="dot"></span>
+              <a href="#"
+                >Duis aute irure dolor in reprehenderit in voluptate velit
+                esse
+              </a> -->
+            </marquee>
+          </div>
+
+        </div>
+    </header>
+    <!-- header-end -->
+
+<router-outlet></router-outlet>
+    
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-7 col-lg-4 " >
+                        <div class="footer_widget">
+                            <div class="footer_logo" >
+                                <a href="#">
+                                    <img src="/assets/guest/img/logo copy.png" width="420px"  alt="">
+                                </a>
+                            </div>
+                            <p class="text-white">Phone:</p>
+                            <a  href="" class="text-orange px-2">
+                                <i class="fas fa-phone-alt"></i></a>
+                               <a class="text-white" href="tel:0471-2463799"> 0471-2463799</a><br><br>
+                               <p class="text-white">Email:</p>
+                               <a  href="" class="text-orange px-2">
+                                <i class="fas fa-envelope-open"></i></a>
+                               <a class="text-white"  href="mailto:rsnksrtc@kerala.gov.in"> rsnksrtc@kerala.gov.in(Online Resevation)</a><br>
+                               <a  href="" class="text-orange px-2">
+                                <i class="fas fa-envelope-open"></i></a>
+                               <a class="text-white" href="mailto:occ.ksrtc@kerala.gov.in"> occ.ksrtc@kerala.gov.in(General Enquiry)</a><br>
+                               <a  href="" class="text-orange px-2">
+                                <i class="fas fa-envelope-open"></i></a>
+                               <a class="text-white" href="mailto:raf.ksrtc@kerala.gov.in"> raf.ksrtc@kerala.gov.in (New Route)</a><br>
+                               <a  href="" class="text-orange px-2">
+                                <i class="fas fa-envelope-open"></i></a>
+                               <a class="text-white" href="mailto:ld.ksrtc@kerala.gov.in"> ld.ksrtc@kerala.gov.in(Long distance)</a><br>
+                               <a  href="" class="text-orange px-2">
+                                <i class="fas fa-envelope-open"></i></a>
+                               <a class="text-white" href="mailto:bda.ksrtc@kerala.gov.in">bda.ksrtc@kerala.gov.in (Break down)</a><br>
+                          
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.facebook.com/KeralaStateRoadTransportCorporation/">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/transport_state?s=08/">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/ksrtcofficial/?utm_medium=copy_link/">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UCQO70_lRhoPu__PMrnroIHg/">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-md-7 col-lg-3" style="margin-left: 108px;">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Popular destination
+                            </h3>
+                            <ul class="links ">
+                                <li><a href="#">Indonesia</a></li>
+                                <li><a href="#">America</a></li>
+                                <li><a href="#">India</a></li>
+                                <li><a href="#">Switzerland</a></li>
+                                <li><a href="#">Italy</a></li>
+                                <li><a href="#">Canada</a></li>
+                                <li><a href="#">Franch</a></li>
+                                <li><a href="#">England</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-7 col-lg-3" style="margin-left: 19px;">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Instagram
+                            </h3>
+                            <div class="instagram_feed">
+                                <div class="single_insta">
+                                    <a href="#">
+                                        <img src="/assets/guest/img/instagram/1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a href="#">
+                                        <img src="/assets/guest/img/instagram/2.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a href="#">
+                                        <img src="/assets/guest/img/instagram/3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a href="#">
+                                        <img src="/assets/guest/img/instagram/4.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a href="#">
+                                        <img src="/assets/guest/img/instagram/5.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a href="#">
+                                        <img src="/assets/guest/img/instagram/6.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+ &copy;<script>document.write(new Date().getFullYear());</script> Copyright 2021 : IT Division, Transport Bhavan, KSRTC. All Rights Reserved. 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+

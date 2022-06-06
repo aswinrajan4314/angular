@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5" style="margin-top: 150px;">
+                <div class="card-heading">
+                    <h2 class="title">STUDENT TICKET APPLICATION</h2>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="studentform">
+
+                        <div class="form-row">
+                            <div class="name">Full Name</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" formControlName="studentname">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="name">Institution</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" formControlName="institution">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Phone</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="number" formControlName="Phone">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Depot</div>
+                            <div class="value">
+                                        
+                                            <div class="col-10">
+                                                <div class="input-group-desc">
+                                                    <select class="input--style-5" aria-label="Default select example" formControlName="dipoId" style="width: 300px;height: 44px;margin-left: -12px;">
+                      
+                        
+                                                        <option *ngFor="let du of depolist " value="{{du.dipotId}}">
+                                                          {{du.location}}
+                                                        </option>
+                                                       
+                                                      </select>
+                                                    
+                                                </div>
+                                            </div>
+                                        
+                                        <div class="select-dropdown"></div>
+                                    
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Route</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-6">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" formControlName="from">
+                                            <label class="label--desc">from</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5 " type="text" name="phone" formControlName="to">
+                                            <label class="label--desc">to</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Photo</div>
+                        <div class="form-group file-area">
+                            <label for="images">Images <span>Your images should be at least 51 mm x 51 mm wide</span></label>
+                        <input type="file" name="fileup" id="filep" required="required" multiple="multiple" (change)="handleFileInput($event)">
+                        <div class="file-dummy">
+                          <div class="success" style="color:rgb(5, 95, 68) ;">Great, your files are selected. Keep on.</div>
+                          <div class="default" style="color: red;">Please select some files</div>
+                        </div>
+                      </div>
+                      </div>
+                        
+                        
+
+
+                        
+                        <div>
+                            <button class="btn btn--radius-2 btn--red"  (click)="submit()">Register</button>
+                        </div>
+                        \<br>
+                        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success ! </strong>  Application <strong>submitted</strong> added successfully.
+                            <button type="button" class="btn-close" data-dismiss="alert">&times;</button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

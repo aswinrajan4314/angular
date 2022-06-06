@@ -1,0 +1,1055 @@
+<!-- Font Awesome -->
+
+ <head>
+    
+
+    <link
+      href="/assets/admin/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+   
+  </head>
+
+
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="/assets/guest/css/style.css" />
+<!-- <link rel="stylesheet" href="css/responsive.css"> -->
+<!-- slider_area_start -->
+<div class="slider_area">
+  <div class="slider_active owl-carousel">
+    <div class="single_slider d-flex align-items-center slider_bg_1 overlay">
+      <div class="container" style="margin-top: 4.6cm">
+        <div class="row align-items-center">
+          <div class="col-xl-12 col-md-12">
+            <div class="slider_text text-center">
+              <h3>Ksrtc Sahayi</h3>
+              <!-- <p>Pixel perfect design with awesome contents</p> -->
+              <p></p>
+              <!-- <a href="#" class="boxed-btn3">Explore Now</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- slider_area_end -->
+
+<!-- where_togo_area_start  -->
+<!-- <div class="where_togo_area" >
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3">
+                <div class="form_area">
+                    <h3>Where you want to go?</h3>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="search_wrap">
+                    <form class="search_form" action="#">
+                        <i class="" style="margin-top:1px ; margin-left: 1px; width: 100px;"></i>
+                        <div class="input_field">
+                            
+                            
+                            <select>
+                                
+                                <option >From</option>
+                                <option *ngFor="let route of routelist " value="{{route.route}}">
+                                    {{route.route}} 
+                                  </option>
+                        
+                            </select>
+                        </div>
+                        <div class="input_field" >
+                            <select>
+                                <option data-display="Going to"  > Going to</option>
+                                <option value="1">Some option</option>
+                                <option value="2">Another option</option>
+                            </select>
+                        </div>
+                        <div class="input_field">
+                            <div class="search_btn">
+                                <button class="boxed-btn4 " type="submit" >Search for bus</button>
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+    
+</div> -->
+<div class="where_togo_area">
+  <div class="site-section site-section-sm pb-0">
+    <div class="container">
+      <div class="row">
+        <form
+          class="form-search col-md-12"
+          style="margin-top: -100px"
+          [formGroup]="searchform"
+        >
+          <div class="row align-items-end">
+            <div class="col-md-3">
+              <div class="container">
+                <div class="form_area">
+                  <h3>Where you want to go?</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="select-city">Going to</label>
+              <div class="select-wrap">
+                <span class="icon icon-arrow_drop_down"></span>
+                <select
+                  name="select-city"
+                  id="select-city"
+                  class="form-control d-block rounded-0"
+                  formControlName="to"
+                >
+                  <option value="">Select location</option>
+                  <option
+                    *ngFor="let route of routelist"
+                    value="{{ route.route }}"
+                  >
+                    {{ route.route }}
+                  </option>
+                  <option
+                    *ngFor="let destination of deslist"
+                    value="{{ destination.destination }}"
+                  >
+                    {{ destination.destination }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <input
+                type="submit"
+                class="btn btn-success text-white btn-block rounded-0"
+                (click)="submit()"
+                value="Search"
+              />
+            </div>
+          </div>
+          <section
+            class="section dashboard"
+            style="margin-top: 30px"
+            *ngFor="let cu of listtrip"
+          >
+            <div>
+              <form>
+                <!-- Recent Activity -->
+                <div class="card" style="height: 289px;">
+                  <div class="row no-gutters">
+                    <div class="colume-md-2" style="padding-left: 10px">
+                      <div class="srt-arvl-tm">
+                        <h2>
+                          <span
+                            class="StrtTm tooltipstered"
+                            id="bPtsDiv_Forward0"
+                          >
+                            {{ cu.time1 }}</span
+                          ><span class="srt-arvl-arrow"> → </span
+                          ><span
+                            class="ArvTm tooltipstered"
+                            id="aPtsDiv_Forward0"
+                            >{{ cu.time6 }}</span
+                          >
+                        </h2>
+                      </div>
+                      <div class="service-no">
+                        <!-- <h3>Duration: 0 days 12:25 hrs</h3> -->
+                        <h3>
+                          <a
+                            href="#"
+                            class="srvceNO"
+                            onclick="popUpWin('/oprs-web/track/services/details.do?id='+'1540875767687'+ '&amp;txtEffectiveDate='+ document.getElementById('txtJourneyDate').value)"
+                            >bus no: <B>{{ cu.bus_no }}</B></a
+                          >
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="colume-md-7">
+                      <div class="sour-desti-sec">
+                        <div class="sour-col">
+                          <h2 style="margin-top: 23px">{{ cu.route1 }}</h2>
+                          <h3>town to town</h3>
+                          <!-- <font
+                            style="
+                              font-size: 14px;
+                              color: #ff5fec;
+                              font-weight: bold;
+                            "
+                            >Ladies Quota Available</font
+                          > -->
+                          <input
+                            type="hidden"
+                            name="record"
+                            property="serviceOrigStartTime"
+                          />
+                        </div>
+
+                        <div class="desti-col">
+                          <h2 style="color: black">{{ cu.destination }}</h2>
+                          <div class="via-routes row">
+                            <p style="text-align: right" >
+                              <!-- <span>Depot Name : </span>ERNAKULAM -->
+                            </p>
+                          </div>
+                        </div>
+                        <div class="via-routes">
+                          <!-- <h6></h6>
+                          <p><span> </span>{{cu.route2}} <span>→</span>{{cu.route3}}<span>→</span> {{cu.route4}} <span>→</span>{{cu.route5}}</p> -->
+                          <div _ngcontent-xon-c71="" class="activity" style="margin-left: 235px;">
+                            <div
+                              _ngcontent-xon-c71=""
+                              class="activity-item d-flex"
+                            >
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-item d-flex"
+                              >
+                                <div
+                                  _ngcontent-xon-c71=""
+                                  class="activite-label"
+                                >
+                                {{cu.time1}}
+                                </div>
+                                <i
+                                  _ngcontent-xon-c71=""
+                                  class="bi bi-circle-fill activity-badge text-success align-self-start"
+                                ></i>
+                                <div
+                                  _ngcontent-xon-c71=""
+                                  class="activity-content"
+                                >
+                                  <a
+                                    _ngcontent-xon-c71=""
+                                    class="fw-bold text-dark"
+                                    >{{cu.route1}}
+                                  </a>
+                                </div>
+                              </div>
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-content"
+                              >
+                                <a
+                                  _ngcontent-xon-c71=""
+                                  class="fw-bold text-dark"
+                                ></a>
+                              </div>
+                            </div>
+                            <div
+                              _ngcontent-xon-c71=""
+                              class="activity-item d-flex"
+                            >
+                              <div _ngcontent-xon-c71="" class="activite-label">
+                                {{cu.time2}}
+                              </div>
+                              <i
+                                _ngcontent-xon-c71=""
+                                class="bi bi-circle-fill activity-badge text-muted align-self-start"
+                              ></i>
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-content"
+                              >
+                                <a
+                                  _ngcontent-xon-c71=""
+                                  class="fw-bold text-dark"
+                                  >{{cu.route2}}
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              _ngcontent-xon-c71=""
+                              class="activity-item d-flex"
+                            >
+                              <div _ngcontent-xon-c71="" class="activite-label">
+                                {{cu.time3}}
+                              </div>
+                              <i
+                                _ngcontent-xon-c71=""
+                                class="bi bi-circle-fill activity-badge text-info align-self-start"
+                              ></i>
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-content"
+                              >
+                                <a
+                                  _ngcontent-xon-c71=""
+                                  class="fw-bold text-dark"
+                                  >{{cu.route3}}
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              _ngcontent-xon-c71=""
+                              class="activity-item d-flex"
+                            >
+                              <div _ngcontent-xon-c71="" class="activite-label">
+                                {{cu.time4}}
+                              </div>
+                              <i
+                                _ngcontent-xon-c71=""
+                                class="bi bi-circle-fill activity-badge align-self-start"
+                                style="color: aquamarine"
+                              ></i>
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-content"
+                              >
+                                <a
+                                  _ngcontent-xon-c71=""
+                                  class="fw-bold text-dark"
+                                  >{{cu.route4}}
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              _ngcontent-xon-c71=""
+                              class="activity-item d-flex"
+                            >
+                              <div _ngcontent-xon-c71="" class="activite-label">
+                                {{cu.time5}}
+                              </div>
+                              <i
+                                _ngcontent-xon-c71=""
+                                class="bi bi-circle-fill activity-badge text-warning align-self-start"
+                              ></i>
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-content"
+                              >
+                                <a
+                                  _ngcontent-xon-c71=""
+                                  class="fw-bold text-dark"
+                                  >{{cu.route5}}
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              _ngcontent-xon-c71=""
+                              class="activity-item d-flex"
+                            >
+                              <div _ngcontent-xon-c71="" class="activite-label">
+                                {{cu.time6}}
+                              </div>
+                              <i
+                                _ngcontent-xon-c71=""
+                                class="bi bi-circle-fill activity-badge text-danger align-self-start"
+                              ></i>
+                              <div
+                                _ngcontent-xon-c71=""
+                                class="activity-content"
+                              >
+                                <a
+                                  _ngcontent-xon-c71=""
+                                  class="fw-bold text-dark"
+                                  >{{cu.destination}}
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2" style="margin-left: auto">
+                      <div class="seats-count">
+                        <h4>total capacity: 30 seats</h4>
+                        <h4 style="margin-left: -116px;">status:</h4><h4 style="color: red;margin-left: 28px;margin-top: -26px;">{{cu.status}}</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col5" style="display: none">
+                    <span class="rupeeIco">
+                      <span class="TickRate" tickrate="894"> 894</span>
+                    </span>
+                  </div>
+                  <div class="col4" style="display: none">
+                    <span class="availCs" availcs="29"> 29</span>
+                  </div>
+
+                  <!-- <div class="card-body" style="margin-left: 200px;">
+                    <h5 class="card-title">Bus Number: 
+                    {{cu.bus_no}}
+                    </h5>
+      
+                      
+    
+                    <div class="activity"  >
+      
+                      <div class="activity-item d-flex">
+                         
+                        <div class="activity-item d-flex">
+                         
+                          <div class="activite-label">  {{cu.time1}}</div>
+                          <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                          <div class="activity-content">
+                              <a  class="fw-bold text-dark">{{cu.route1}}
+                                  </a> 
+                          </div>
+                        </div>
+                     
+                        <div class="activity-content">
+                          <a  class="fw-bold text-dark">
+                               </a> 
+                        </div>
+                      </div>
+      
+                      <div class="activity-item d-flex">
+                         
+                        <div class="activite-label"> {{cu.time2}}</div>
+                        <i class='bi bi-circle-fill activity-badge text-muted  align-self-start'></i>
+                        <div class="activity-content">
+                            <a  class="fw-bold text-dark">{{cu.route2}}
+                                </a> 
+                        </div>
+                      </div>
+
+                      <div class="activity-item d-flex">
+                         
+                        <div class="activite-label">{{cu.time3}}</div>
+                        <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                        <div class="activity-content">
+                            <a  class="fw-bold text-dark">{{cu.route3}}
+                                </a> 
+                        </div>
+                      </div>
+      
+                      <div class="activity-item d-flex">
+                         
+                        <div class="activite-label">{{cu.time4}}</div>
+                        <i class='bi bi-circle-fill activity-badge  align-self-start' style="color: aquamarine;"></i>
+                        <div class="activity-content">
+                            <a  class="fw-bold text-dark">{{cu.route4}}
+                                </a> 
+                        </div>
+                      </div>
+      
+                      <div class="activity-item d-flex"> 
+                        <div class="activite-label">{{cu.time5}}</div>
+                        <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                        <div class="activity-content">
+                            <a  class="fw-bold text-dark">{{cu.route5}}
+                                </a> 
+                        </div>
+                      </div>
+      
+                      <div class="activity-item d-flex"> 
+                        <div class="activite-label">{{cu.time6}}</div>
+                        <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                        <div class="activity-content">
+                            <a  class="fw-bold text-dark">{{cu.destination}}
+                                </a> 
+                        </div>
+                      </div>
+      
+                    </div>
+      
+                  </div> -->
+                </div>
+              </form>
+            </div>
+          </section>
+          <!-- End Table with stripped rows -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- where_togo_area_end  -->
+<div class="container-fluid offer pt-5" style="margin-top: -47px">
+  <div class="row px-xl-5">
+    <div class="col-md-6 pb-4">
+      <div class="text-center text-md-right text-white mb-2 py-5 px-5">
+        <!-- dirctor -->
+        <div class="container1">
+          <div class="svg-background"></div>
+          <div class="svg-background2"></div>
+          <div class="circle"></div>
+
+          <img
+            class="profile-img"
+            src="/assets/guest/img/SriBijuBhabhakarIAS.jpg"
+          />
+          <div class="text-container1">
+            <h5 class="font-weight-semi-bold m-0">
+              <i class="fas fa-user-tie"></i> Chairman & Managing Director
+            </h5>
+            <p class="info-text text-dark">Sri. Biju Prabhakar IAS</p>
+            <p class="desc-text text-dark">
+              A board of Directors consisting of fifteen members including the
+              Chairman governs the Corporation. The administrative setup ...
+            </p>
+            <a class="text-orange" href="officers.html">
+              Know more
+              <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- dirctor end-->
+      </div>
+    </div>
+    <div class="col-md-6 pb-4" style="margin-top: 33px">
+      <div class="text-white mb-2 py-5 px-5" style="margin-left: 2c">
+        <div class="holder">
+          <p class="info-text text-orange border1" style="text-align: center">
+            Latest News
+          </p>
+
+          <div>
+            <!-- <ul >
+                        <li><a href="#"><h5 style=" color:Blue "> Get 30% Discount in Tickets!!!<img src="/assets/guest/img/new.gif" style="padding-top: 5px; padding-left: 10px;">	</h5></a></li>
+                        <p class="text-dark" style=" text-align: justify;text-justify: inter-word;">Get 30% discounts in Scania ,Volvo Buses by booking your tickets online. Book your tickets now!!!</p>
+                        <li> <hr style="height:1px;color:#e7e7e7;background-color:#e7e7e7"></li>
+                        <h5>Passenger who Travelling to KERALA From Other States</h5>
+                        <li><a href=""><p class="text-dark" style=" text-align: justify;text-justify: inter-word;">
+                            As per the Kerala State Govt. orders, all passengers coming to Kerala from other states shall mandatorily produce a negative
+                             RT-PCR certificate that is not older than 72 hours or vaccination certificate of two dose of COVID 19 vaccine. This Must be 
+                             presented when requested by the conductor..</p></a></li>
+                             <li> <hr style="height:1px;color:#e7e7e7;background-color:#e7e7e7"></li>
+                        <li><a href="#">Dell Aspire - 6GB/500GB</a></li>
+                        <li><a href="#">Acer Tilty - 16GB/1TB</a></li>
+                    </ul> -->
+            <marquee
+              behavior="scroll"
+              scrolldelay="1s"
+              scrollamount="12"
+              direction="up"
+              onmouseover="this.stop();"
+              onmouseout="this.start();"
+            >
+              <h4 style="color: Blue">
+                Get 30% Discount in Tickets!!!<img
+                  src="/assets/guest/img/new.gif"
+                />
+              </h4>
+              <p>
+                Get 30% discounts in Scania ,Volvo Buses by booking your tickets
+                online. Book your tickets now!!!
+              </p>
+              <hr />
+
+              <h4>Passenger who Travelling to KARNATAKA From KERALA</h4>
+              <p>
+                As per the Karnataka State Government order, The mandate of
+                possessing RT-PCR negative test reports was discontinued for
+                passengers arriving from Kerala. All passengers coming from
+                Kerala State to Karnataka will mandatorily carry the two-dose /
+                full dose vaccination certificate. This Must be submitted to the
+                officials if necessary.
+              </p>
+              <hr />
+
+              <h4>Passenger who Travelling to KERALA From Other States</h4>
+              <p>
+                As per the Kerala State Govt. orders, all passengers coming to
+                Kerala from other states shall mandatorily produce a negative
+                RT-PCR certificate that is not older than 72 hours or
+                vaccination certificate of two dose of COVID 19 vaccine. This
+                Must be presented when requested by the conductor.
+              </p>
+              <hr />
+              <hr />
+
+              <p>
+                ,കേരള,കർണ്ണാടക ,തമിഴ്‌നാട് സർക്കാരുകൾ തീരുമാനിച്ചിരിക്കുന്ന
+                കോവിഡ് പ്രോട്ടോകോളുകൾ കർശനമായി പാലിക്കാൻ ബുക്ക് ചെയ്ത യാത്രക്കാർ
+                ബാദ്ധ്യസ്‌തരായിരിക്കും
+              </p>
+              <p>
+                Passengers booked will be required to strictly follow the Covid
+                protocols prescribed by the Governments of Kerala, Karnataka and
+                Tamil Nadu.
+              </p>
+              <hr />
+
+              <p>
+                എല്ലാ യാത്രക്കാരും കോവിഡ് ജാഗ്രത പോർട്ടലിൽ
+                <a
+                  href="https://covid19jagratha.kerala.nic.in/"
+                  style="color: #e82801"
+                  >https://covid19jagratha.kerala.nic.in/</a
+                >
+                രജിസ്റ്റർ ചെയ്‌ത്‌ കേരളത്തിലേക്കുള്ള യാത്രാ പാസ് യാത്രാവേളയിൽ
+                ഹാജരാക്കിയാൽ മാത്രമേ യത്ര അനുമതി ലഭിക്കുകയുള്ളു .
+              </p>
+              <p>
+                Travel permits can be obtained only ,if all passengers register
+                with the Covid Jagratha Portal(<a
+                  style="color: #e82801"
+                  href="https://covid19jagratha.kerala.nic.in/"
+                  >https://covid19jagratha.kerala.nic.in/</a
+                >) and present their travel pass to Kerala.
+              </p>
+            </marquee>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popular_destination_area_start  -->
+<div class="popular_destination_area" style="margin-top: -132px">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="section_title text-center mb_70">
+          <h3>Popular Destination</h3>
+          <p>
+            KERALA, A STATE ON INDIA'S TROPICAL MALABAR COAST, HAS NEARLY 600KM
+            OF ARABIAN SEA SHORELINE. IT'S KNOWN FOR ITS PALM-LINED BEACHES AND
+            BACKWATERS, A NETWORK OF CANALS. KERALA, A STATE ON INDIA'S TROPICAL
+            MALABAR COAST, HAS NEARLY 600KM OF ARABIAN SEA SHORELINE.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-7">
+        <div class="single_destination">
+          <div class="thumb">
+            <img src="/assets/guest/img/destination/1.jpg" alt="" />
+          </div>
+          <!-- <div class="content">
+                        <p class="d-flex align-items-center">Italy <a href="travel_destination.html">  07 Places</a> </p>
+                        
+                    </div> -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-7">
+        <div class="single_destination">
+          <div class="thumb">
+            <img src="/assets/guest/img/destination/2.jpg" alt="" />
+          </div>
+          <!--  <div class="content">
+                        <p class="d-flex align-items-center">Brazil <a href="travel_destination.html">  03 Places</a> </p>
+                        
+                    </div> -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-7">
+        <div class="single_destination">
+          <div class="thumb">
+            <img src="/assets/guest/img/destination/3.jpg" alt="" />
+          </div>
+          <!--  <div class="content">
+                        <p class="d-flex align-items-center">America <a href="travel_destination.html">  10 Places</a> </p>
+                        
+                    </div> -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-7">
+        <div class="single_destination">
+          <div class="thumb">
+            <img src="/assets/guest/img/destination/4.jpg" alt="" />
+          </div>
+          <!-- <div class="content">
+                        <p class="d-flex align-items-center">Nepal <a href="travel_destination.html">  02 Places</a> </p>
+                        
+                    </div> -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-7">
+        <div class="single_destination">
+          <div class="thumb">
+            <img src="/assets/guest/img/destination/5.jpg" alt="" />
+          </div>
+          <!-- <div class="content">
+                        <p class="d-flex align-items-center">Maldives <a href="travel_destination.html">  02 Places</a> </p>
+                        
+                    </div> -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-7">
+        <div class="single_destination">
+          <div class="thumb">
+            <img src="/assets/guest/img/destination/6.jpg" alt="" />
+          </div>
+          <!--  <div class="content">
+                        <p class="d-flex align-items-center">Indonesia <a href="travel_destination.html">  05 Places</a> </p>
+                        
+                    </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- popular_destination_area_end  -->
+
+<!-- newletter_area_start  -->
+<!--  <div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Subscribe Our Newsletter</h4>
+                            <p>Subscribe newsletter to get offers and about
+                                new places to discover.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mail_form">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Your mail" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4 " type="submit" >Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- newletter_area_end  -->
+
+<!--   <div class="popular_places_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>Popular Places</h3>
+                    <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-7">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/place/1.png" alt="">
+                        <a href="#" class="prise">$500</a>
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>California</h3></a>
+                        <p>United State of America</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/place/2.png" alt="">
+                        <a href="#" class="prise">$500</a>
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Korola Megna</h3></a>
+                        <p>United State of America</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/place/3.png" alt="">
+                        <a href="#" class="prise">$500</a>
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>London</h3></a>
+                        <p>United State of America</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/place/4.png" alt="">
+                        <a href="#" class="prise">$500</a>
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Miami Beach</h3></a>
+                        <p>United State of America</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/place/5.png" alt="">
+                        <a href="#" class="prise">$500</a>
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>California</h3></a>
+                        <p>United State of America</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/place/6.png" alt="">
+                        <a href="#" class="prise">$500</a>
+                    </div>
+                    <div class="place_info">
+                        <a href="destination_details.html"><h3>Saintmartine Iceland</h3></a>
+                        <p>United State of America</p>
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i> 
+                                 <i class="fa fa-star"></i>
+                                 <a href="#">(20 Review)</a>
+                            </span>
+                            <div class="days">
+                                <i class="fa fa-clock-o"></i>
+                                <a href="#">5 Days</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="more_place_btn text-center">
+                    <a class="boxed-btn4" href="#">More Places</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!--    <div class="travel_variation_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-7">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="/assets/guest/img/svg_icon/1.svg" alt="">
+                    </div>
+                    <h3>Comfortable Journey</h3>
+                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="/assets/guest/img/svg_icon/2.svg" alt="">
+                    </div>
+                    <h3>Luxuries Hotel</h3>
+                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="/assets/guest/img/svg_icon/3.svg" alt="">
+                    </div>
+                    <h3>Travel Guide</h3>
+                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- testimonial_area  -->
+
+<!-- /testimonial_area  -->
+
+<!-- 
+<div class="recent_trip_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="section_title text-center mb_70">
+                    <h3>Recent Trips</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-7">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/trip/1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="#">
+                            <h3>Journeys Are Best Measured In
+                                New Friends</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/trip/2.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="#">
+                            <h3>Journeys Are Best Measured In
+                                New Friends</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-7">
+                <div class="single_trip">
+                    <div class="thumb">
+                        <img src="/assets/guest/img/trip/3.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            <span>Oct 12, 2019</span>
+                        </div>
+                        <a href="#">
+                            <h3>Journeys Are Best Measured In
+                                New Friends</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+-->
+
+<!-- Modal -->
+<div
+  class="modal fade custom_search_pop"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="serch_form">
+        <input type="text" placeholder="Search" />
+        <button type="submit">search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- link that opens popup -->
+<!--     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script> -->
+
+<script>
+  $("#datepicker").datepicker({
+    iconsLibrary: "fontawesome",
+    icons: {
+      rightIcon: '<span class="fa fa-caret-down"></span>',
+    },
+  });
+</script>
