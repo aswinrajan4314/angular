@@ -23,6 +23,7 @@
     "boostrap": "^2.0.0",
     "chart.js": "^2.9.4",
     "firebase": "^9.6.11",
+    "g": "^2.0.1",
     "html-to-image": "^1.9.0",
     "ng-apexcharts": "^1.7.1",
     "rxjs": "~7.4.0",
